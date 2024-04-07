@@ -1,2 +1,2 @@
 # WildWerks
- Main game
+ First attempt at creating a game
