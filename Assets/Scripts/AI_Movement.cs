@@ -44,35 +44,31 @@ public class AI_Movement : MonoBehaviour
             // Decrease the walkCounter over time
             walkCounter -= Time.deltaTime;
 
-            // Calculate the new forward direction based on the WalkDirection
-            Vector3 forwardDirection = Vector3.zero;
+            // Move the AI based on the current WalkDirection
             switch (WalkDirection)
             {
                 case 0: // Forward
-                    forwardDirection = Vector3.forward;
+                    transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+                    transform.position += transform.forward * moveSpeed * Time.deltaTime;
                     break;
                 case 1: // Right
-                    forwardDirection = Vector3.right;
+                    transform.localRotation = Quaternion.Euler(0f, 90, 0f);
+                    transform.position += transform.forward * moveSpeed * Time.deltaTime;
                     break;
                 case 2: // Left
-                    forwardDirection = Vector3.left;
+                    transform.localRotation = Quaternion.Euler(0f, -90, 0f);
+                    transform.position += transform.forward * moveSpeed * Time.deltaTime;
                     break;
                 case 3: // Backward
-                    forwardDirection = Vector3.back;
+                    transform.localRotation = Quaternion.Euler(0f, 180, 0f);
+                    transform.position += transform.forward * moveSpeed * Time.deltaTime;
                     break;
             }
-
-            // Rotate towards the new forward direction while keeping the original x and z rotation angles
-            Quaternion targetRotation = Quaternion.LookRotation(forwardDirection);
-            targetRotation = Quaternion.Euler(0f, targetRotation.eulerAngles.y, 0f);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * moveSpeed);
-
-            // Move the AI forward
-            transform.position += transform.forward * moveSpeed * Time.deltaTime;
 
             // If the walkCounter reaches 0, stop the AI and prepare for waiting
             if (walkCounter <= 0)
             {
+                stopPosition = transform.position; // Mark the stopping position
                 isWalking = false; // Stop walking
                 animator.SetBool("isRunning", false); // Deactivate the running animation
                 waitCounter = waitTime; // Reset the waitCounter to the wait time
