@@ -1,69 +1,75 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using TMPro;  // Include TMPro namespace for using TextMeshPro components
+using TMPro;
 
 public class SelectionManager : MonoBehaviour
 {
-    // Public GameObject for the UI panel that displays interaction information
-    public GameObject interaction_Info_UI;
-    // Variable to store the TextMeshProUGUI component where interaction text will be displayed
-    TextMeshProUGUI interaction_text;
+    public GameObject interaction_Info_UI; // UI panel that displays interaction information
+    TextMeshProUGUI interaction_text; // Text component for displaying interaction information
+
+    private GameObject currentInteractable; // Currently detected interactable object
 
     private void Start()
     {
-        // Ensure that the interaction_Info_UI GameObject is assigned to avoid runtime errors
+        // Ensure the UI component is assigned
         if (!interaction_Info_UI)
         {
             Debug.LogError("Interaction Info UI GameObject is not assigned in the inspector");
-            this.enabled = false;  // Disable script if no UI component assigned
+            this.enabled = false;
             return;
         }
 
-        // Retrieve the TextMeshProUGUI component from the interaction_Info_UI GameObject
+        // Retrieve and check the TextMeshPro component
         interaction_text = interaction_Info_UI.GetComponent<TextMeshProUGUI>();
-
-        // Check if the interaction_text was successfully retrieved
         if (!interaction_text)
         {
-            Debug.LogError("The TextMeshProUGUI component is not found on the interaction_Info_UI GameObject");
-            this.enabled = false;  // Disable script if component is missing
+            Debug.LogError("TextMeshProUGUI component not found on the interaction_Info_UI GameObject");
+            this.enabled = false;
         }
 
-        // Initially disable the interaction UI until it's needed
+        // Disable the UI initially
         interaction_Info_UI.SetActive(false);
     }
 
     void Update()
     {
-        // Create a ray from the camera through the mouse position
+        // Perform a raycast from the camera to the mouse position
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        // Perform a raycast; if it hits something within 10 units
-        if (Physics.Raycast(ray, out hit, 10))
+        if (Physics.Raycast(ray, out hit, 100)) // Adjust distance as needed
         {
-            // Get the Transform component of the object that was hit
-            Transform selectionTransform = hit.transform;
+            InteractableObject interactableObject = hit.transform.GetComponent<InteractableObject>();
 
-            // Check if the object hit has an InteractableObject component
-            InteractableObject interactableObject = selectionTransform.GetComponent<InteractableObject>();
-            if (interactableObject)
+            // Check if the object hit has an InteractableObject component and is in range
+            if (interactableObject && interactableObject.playerInRange)
             {
-                // If it does, update the interaction text to the item's name and make the UI visible
-                interaction_text.text = interactableObject.GetItemName();
-                interaction_Info_UI.SetActive(true);
+                // Set the current interactable if it's within range
+                if (currentInteractable != hit.transform.gameObject)
+                {
+                    currentInteractable = hit.transform.gameObject;
+                    interaction_text.text = interactableObject.GetItemName();
+                    interaction_Info_UI.SetActive(true);
+                }
             }
             else
             {
-                // If no InteractableObject is found, hide the interaction UI
-                interaction_Info_UI.SetActive(false);
+                ClearInteraction();
             }
         }
         else
         {
-            // If the raycast doesn't hit anything, also ensure the interaction UI is not visible
+            ClearInteraction();
+        }
+    }
+
+    // Clear the interaction display if no suitable object is detected
+    private void ClearInteraction()
+    {
+        if (currentInteractable != null)
+        {
             interaction_Info_UI.SetActive(false);
+            currentInteractable = null;
         }
     }
 }

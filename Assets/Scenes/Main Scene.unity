@@ -241,9 +241,11 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -500, y: -1.77, z: -500}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3000, y: 3000, z: 3000}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1273833694}
+  - {fileID: 353518742}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &155284415
@@ -469,6 +471,128 @@ Transform:
   m_Children:
   - {fileID: 1889340122}
   m_Father: {fileID: 1827270789}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &271307486
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 353518742}
+    m_Modifications:
+    - target: {fileID: 6654533867572181080, guid: bec839f885376304c9a7862bd01f8cbb, type: 3}
+      propertyPath: m_Name
+      value: Cliff_fancy
+      objectReference: {fileID: 0}
+    - target: {fileID: 6654533867572181082, guid: bec839f885376304c9a7862bd01f8cbb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.00033333333
+      objectReference: {fileID: 0}
+    - target: {fileID: 6654533867572181082, guid: bec839f885376304c9a7862bd01f8cbb, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.00033333333
+      objectReference: {fileID: 0}
+    - target: {fileID: 6654533867572181082, guid: bec839f885376304c9a7862bd01f8cbb, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.00033333333
+      objectReference: {fileID: 0}
+    - target: {fileID: 6654533867572181082, guid: bec839f885376304c9a7862bd01f8cbb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.1666911
+      objectReference: {fileID: 0}
+    - target: {fileID: 6654533867572181082, guid: bec839f885376304c9a7862bd01f8cbb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0002510302
+      objectReference: {fileID: 0}
+    - target: {fileID: 6654533867572181082, guid: bec839f885376304c9a7862bd01f8cbb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.16875501
+      objectReference: {fileID: 0}
+    - target: {fileID: 6654533867572181082, guid: bec839f885376304c9a7862bd01f8cbb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6654533867572181082, guid: bec839f885376304c9a7862bd01f8cbb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6654533867572181082, guid: bec839f885376304c9a7862bd01f8cbb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6654533867572181082, guid: bec839f885376304c9a7862bd01f8cbb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6654533867572181082, guid: bec839f885376304c9a7862bd01f8cbb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6654533867572181082, guid: bec839f885376304c9a7862bd01f8cbb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6654533867572181082, guid: bec839f885376304c9a7862bd01f8cbb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6654533867572181080, guid: bec839f885376304c9a7862bd01f8cbb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2118200104}
+    - targetCorrespondingSourceObject: {fileID: 6654533867572181080, guid: bec839f885376304c9a7862bd01f8cbb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2118200105}
+    - targetCorrespondingSourceObject: {fileID: 6654533867572181080, guid: bec839f885376304c9a7862bd01f8cbb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2118200106}
+  m_SourcePrefab: {fileID: 100100000, guid: bec839f885376304c9a7862bd01f8cbb, type: 3}
+--- !u!4 &271307487 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6654533867572181082, guid: bec839f885376304c9a7862bd01f8cbb, type: 3}
+  m_PrefabInstance: {fileID: 271307486}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &291774113 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8458342792176807067, guid: 46b60189ea038fe4292f66083e364762, type: 3}
+  m_PrefabInstance: {fileID: 1355587984}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &353518741
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 353518742}
+  m_Layer: 6
+  m_Name: Rocks
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &353518742
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 353518741}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2119241076}
+  - {fileID: 1355587985}
+  - {fileID: 271307487}
+  m_Father: {fileID: 150681090}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &415103588
 GameObject:
@@ -734,7 +858,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a95accb889587d444b75934db2b3efce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.2
+  moveSpeed: 1
   rotationSpeed: 120
 --- !u!1001 &550068119
 PrefabInstance:
@@ -900,7 +1024,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a95accb889587d444b75934db2b3efce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.2
+  moveSpeed: 1
   rotationSpeed: 120
 --- !u!1001 &591401102
 PrefabInstance:
@@ -1066,7 +1190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a95accb889587d444b75934db2b3efce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.2
+  moveSpeed: 1
   rotationSpeed: 120
 --- !u!1 &620740778
 GameObject:
@@ -1300,7 +1424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a95accb889587d444b75934db2b3efce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.2
+  moveSpeed: 1
   rotationSpeed: 120
 --- !u!1 &740917427
 GameObject:
@@ -1710,7 +1834,7 @@ GameObject:
   - component: {fileID: 1142605144}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1750,7 +1874,7 @@ Transform:
   m_GameObject: {fileID: 1142605138}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1.66, y: 0, z: -1.91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2057,7 +2181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a95accb889587d444b75934db2b3efce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.2
+  moveSpeed: 1
   rotationSpeed: 120
 --- !u!1001 &1247802869
 PrefabInstance:
@@ -2223,7 +2347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a95accb889587d444b75934db2b3efce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.2
+  moveSpeed: 1
   rotationSpeed: 120
 --- !u!1 &1273833693
 GameObject:
@@ -2250,8 +2374,8 @@ Transform:
   m_GameObject: {fileID: 1273833693}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15.829041, y: -1.0880699, z: -21.771515}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.17194301, y: 0.00022731003, z: 0.1594095}
+  m_LocalScale: {x: 0.00033333333, y: 0.00033333333, z: 0.00033333333}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4341730454919449}
@@ -2261,7 +2385,7 @@ Transform:
   - {fileID: 1920904916}
   - {fileID: 417019228}
   - {fileID: 740917428}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 150681090}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1302107029
 PrefabInstance:
@@ -2427,7 +2551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a95accb889587d444b75934db2b3efce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.2
+  moveSpeed: 1
   rotationSpeed: 120
 --- !u!1 &1306140173
 GameObject:
@@ -2538,6 +2662,145 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0022598016, y: 0.0002025587, z: 0.0031607198}
     m_Extent: {x: 0.008779211, y: 0.007644344, z: 0.010325898}
   m_DirtyAABB: 0
+--- !u!1001 &1355587984
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 353518742}
+    m_Modifications:
+    - target: {fileID: 8458342792176807065, guid: 46b60189ea038fe4292f66083e364762, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.00033333333
+      objectReference: {fileID: 0}
+    - target: {fileID: 8458342792176807065, guid: 46b60189ea038fe4292f66083e364762, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.00033333333
+      objectReference: {fileID: 0}
+    - target: {fileID: 8458342792176807065, guid: 46b60189ea038fe4292f66083e364762, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.00033333333
+      objectReference: {fileID: 0}
+    - target: {fileID: 8458342792176807065, guid: 46b60189ea038fe4292f66083e364762, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.16657047
+      objectReference: {fileID: 0}
+    - target: {fileID: 8458342792176807065, guid: 46b60189ea038fe4292f66083e364762, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.00022363094
+      objectReference: {fileID: 0}
+    - target: {fileID: 8458342792176807065, guid: 46b60189ea038fe4292f66083e364762, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.1676754
+      objectReference: {fileID: 0}
+    - target: {fileID: 8458342792176807065, guid: 46b60189ea038fe4292f66083e364762, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8458342792176807065, guid: 46b60189ea038fe4292f66083e364762, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8458342792176807065, guid: 46b60189ea038fe4292f66083e364762, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8458342792176807065, guid: 46b60189ea038fe4292f66083e364762, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8458342792176807065, guid: 46b60189ea038fe4292f66083e364762, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8458342792176807065, guid: 46b60189ea038fe4292f66083e364762, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8458342792176807065, guid: 46b60189ea038fe4292f66083e364762, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8458342792176807067, guid: 46b60189ea038fe4292f66083e364762, type: 3}
+      propertyPath: m_Name
+      value: Plate_fancy
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8458342792176807067, guid: 46b60189ea038fe4292f66083e364762, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1355587987}
+    - targetCorrespondingSourceObject: {fileID: 8458342792176807067, guid: 46b60189ea038fe4292f66083e364762, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1355587988}
+    - targetCorrespondingSourceObject: {fileID: 8458342792176807067, guid: 46b60189ea038fe4292f66083e364762, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1355587989}
+  m_SourcePrefab: {fileID: 100100000, guid: 46b60189ea038fe4292f66083e364762, type: 3}
+--- !u!4 &1355587985 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8458342792176807065, guid: 46b60189ea038fe4292f66083e364762, type: 3}
+  m_PrefabInstance: {fileID: 1355587984}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1355587987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291774113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17538d8180d54914da5246dc5dbad1fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemName: Fancy Rock
+  playerInRange: 1
+--- !u!65 &1355587988
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291774113}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.82, y: 1.02, z: 1.1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &1355587989
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291774113}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5, y: 5, z: 5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1408602135
 GameObject:
   m_ObjectHideFlags: 0
@@ -2968,7 +3231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a95accb889587d444b75934db2b3efce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.2
+  moveSpeed: 1
   rotationSpeed: 120
 --- !u!1 &1675123186
 GameObject:
@@ -3258,6 +3521,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Large Rabbit
+  playerInRange: 0
 --- !u!1 &1774990854
 GameObject:
   m_ObjectHideFlags: 0
@@ -3666,7 +3930,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a95accb889587d444b75934db2b3efce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.2
+  moveSpeed: 1
   rotationSpeed: 120
 --- !u!114 &1890562221
 MonoBehaviour:
@@ -3681,6 +3945,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Large Rabbit
+  playerInRange: 0
 --- !u!95 &1890562222
 Animator:
   serializedVersion: 5
@@ -3702,6 +3967,11 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &1892728103 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1231909215900800693, guid: d17b25948e8c153429e46c22f566aa6d, type: 3}
+  m_PrefabInstance: {fileID: 2119241075}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1920904915
 GameObject:
   m_ObjectHideFlags: 0
@@ -4139,7 +4409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a95accb889587d444b75934db2b3efce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.2
+  moveSpeed: 1
   rotationSpeed: 120
 --- !u!1 &2031384655
 GameObject:
@@ -4278,6 +4548,210 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1487432409}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2118200102 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6654533867572181080, guid: bec839f885376304c9a7862bd01f8cbb, type: 3}
+  m_PrefabInstance: {fileID: 271307486}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2118200104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118200102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17538d8180d54914da5246dc5dbad1fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemName: Fancy Rock
+  playerInRange: 1
+--- !u!65 &2118200105
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118200102}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.55, y: 1.58, z: 1.71}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &2118200106
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118200102}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5, y: 5, z: 5}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1001 &2119241075
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 353518742}
+    m_Modifications:
+    - target: {fileID: 1231909215900800693, guid: d17b25948e8c153429e46c22f566aa6d, type: 3}
+      propertyPath: m_Name
+      value: Rock_fancy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1231909215900800695, guid: d17b25948e8c153429e46c22f566aa6d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.00008494668
+      objectReference: {fileID: 0}
+    - target: {fileID: 1231909215900800695, guid: d17b25948e8c153429e46c22f566aa6d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.00008494668
+      objectReference: {fileID: 0}
+    - target: {fileID: 1231909215900800695, guid: d17b25948e8c153429e46c22f566aa6d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.00008494668
+      objectReference: {fileID: 0}
+    - target: {fileID: 1231909215900800695, guid: d17b25948e8c153429e46c22f566aa6d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.165795
+      objectReference: {fileID: 0}
+    - target: {fileID: 1231909215900800695, guid: d17b25948e8c153429e46c22f566aa6d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.00004137623
+      objectReference: {fileID: 0}
+    - target: {fileID: 1231909215900800695, guid: d17b25948e8c153429e46c22f566aa6d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.168431
+      objectReference: {fileID: 0}
+    - target: {fileID: 1231909215900800695, guid: d17b25948e8c153429e46c22f566aa6d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1231909215900800695, guid: d17b25948e8c153429e46c22f566aa6d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1231909215900800695, guid: d17b25948e8c153429e46c22f566aa6d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1231909215900800695, guid: d17b25948e8c153429e46c22f566aa6d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1231909215900800695, guid: d17b25948e8c153429e46c22f566aa6d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1231909215900800695, guid: d17b25948e8c153429e46c22f566aa6d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1231909215900800695, guid: d17b25948e8c153429e46c22f566aa6d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1231909215900800695, guid: d17b25948e8c153429e46c22f566aa6d, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1231909215900800693, guid: d17b25948e8c153429e46c22f566aa6d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2119241078}
+    - targetCorrespondingSourceObject: {fileID: 1231909215900800693, guid: d17b25948e8c153429e46c22f566aa6d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2119241081}
+    - targetCorrespondingSourceObject: {fileID: 1231909215900800693, guid: d17b25948e8c153429e46c22f566aa6d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2119241082}
+  m_SourcePrefab: {fileID: 100100000, guid: d17b25948e8c153429e46c22f566aa6d, type: 3}
+--- !u!4 &2119241076 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1231909215900800695, guid: d17b25948e8c153429e46c22f566aa6d, type: 3}
+  m_PrefabInstance: {fileID: 2119241075}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &2119241078
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1892728103}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.39, y: 1.15, z: 2.3}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2119241081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1892728103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17538d8180d54914da5246dc5dbad1fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemName: Fancy Rock
+  playerInRange: 1
+--- !u!65 &2119241082
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1892728103}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 20, y: 20, z: 20}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2134710663
 GameObject:
   m_ObjectHideFlags: 0
@@ -11803,6 +12277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Pine Tree
+  playerInRange: 0
 --- !u!136 &136151598002107497
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -11862,6 +12337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Deciduous Tree
+  playerInRange: 0
 --- !u!136 &136367589005911099
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -11898,6 +12374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367589085500638
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -11934,6 +12411,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367589156280380
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -11970,6 +12448,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367589161335359
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -12006,6 +12485,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367589174945625
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -12042,6 +12522,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367589197857887
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -12078,6 +12559,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367589284181202
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -12114,6 +12596,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367589342429335
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -12150,6 +12633,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367589408842117
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -12186,6 +12670,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367589413464548
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -12222,6 +12707,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367589475139148
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -12258,6 +12744,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367589510102323
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -12294,6 +12781,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367589514427211
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -12330,6 +12818,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367589539893998
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -12366,6 +12855,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367589555715336
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -12402,6 +12892,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367589599139930
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -12438,6 +12929,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367589663651504
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -12474,6 +12966,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367589759222530
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -12510,6 +13003,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367589811867046
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -12546,6 +13040,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367589814477984
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -12582,6 +13077,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367589849244952
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -12618,6 +13114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367589854210375
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -12654,6 +13151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367589903013413
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -12690,6 +13188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367589930517105
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -12726,6 +13225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367589936316645
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -12762,6 +13262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367589947901204
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -12798,6 +13299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367589958059478
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -12834,6 +13336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367590029382196
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -12870,6 +13373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367590044701964
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -12906,6 +13410,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367590054393405
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -12942,6 +13447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367590110314709
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -12978,6 +13484,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367590140558085
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -13014,6 +13521,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367590170623951
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -13050,6 +13558,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367590194402419
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -13086,6 +13595,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367590329576625
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -13122,6 +13632,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367590345767029
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -13158,6 +13669,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367590407566652
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -13194,6 +13706,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367590417217529
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -13230,6 +13743,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367590550082338
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -13266,6 +13780,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367590563222439
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -13302,6 +13817,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367590570385177
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -13338,6 +13854,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367590570930622
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -13374,6 +13891,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367590577953493
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -13410,6 +13928,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367590593239379
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -13446,6 +13965,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367590602409983
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -13482,6 +14002,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367590615858848
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -13518,6 +14039,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367590637639228
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -13554,6 +14076,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367590641996642
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -13590,6 +14113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367590679200923
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -13626,6 +14150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367590689921516
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -13662,6 +14187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367590704915754
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -13698,6 +14224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367590707098455
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -13734,6 +14261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367590711461109
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -13770,6 +14298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367590746681379
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -13806,6 +14335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367590812503146
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -13842,6 +14372,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367590856513885
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -13878,6 +14409,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367590866950047
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -13914,6 +14446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367590869812862
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -13950,6 +14483,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367590874246838
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -13986,6 +14520,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367590875515495
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14022,6 +14557,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367590901041854
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14058,6 +14594,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367590925108639
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14094,6 +14631,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367590973582202
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14130,6 +14668,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367590989334573
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14166,6 +14705,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136367591031117021
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14202,6 +14742,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136370253866335673
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14238,6 +14779,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136486588869816913
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14274,6 +14816,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Oak Tree
+  playerInRange: 0
 --- !u!136 &136520286284176197
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14310,6 +14853,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Pine Tree
+  playerInRange: 0
 --- !u!136 &136526015576674890
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14346,6 +14890,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Deciduous Tree
+  playerInRange: 0
 --- !u!136 &136540116540618029
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14405,6 +14950,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Oak Tree
+  playerInRange: 0
 --- !u!136 &136670559689393572
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14441,6 +14987,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Willow Tree
+  playerInRange: 0
 --- !u!136 &136737076515526339
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14477,6 +15024,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Deciduous Tree
+  playerInRange: 0
 --- !u!136 &136748734581984085
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14513,6 +15061,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Willow Tree
+  playerInRange: 0
 --- !u!136 &136908100099122726
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14549,6 +15098,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Pine Tree
+  playerInRange: 0
 --- !u!136 &136912090767430451
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14585,6 +15135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Birch Tree
+  playerInRange: 0
 --- !u!136 &136953110577255134
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14621,6 +15172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Deciduous Tree
+  playerInRange: 0
 --- !u!136 &136959602864616673
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14657,6 +15209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: Oak Tree
+  playerInRange: 0
 --- !u!205 &205222133196668081
 LODGroup:
   m_ObjectHideFlags: 0
@@ -14697,6 +15250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: 
+  playerInRange: 0
 --- !u!205 &205388090381893617
 LODGroup:
   m_ObjectHideFlags: 0
@@ -14737,6 +15291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemName: 
+  playerInRange: 0
 --- !u!137 &8223931510795618066
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
@@ -15636,7 +16191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a95accb889587d444b75934db2b3efce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.2
+  moveSpeed: 1
   rotationSpeed: 120
 --- !u!4 &8346982670776038086
 Transform:
@@ -15833,11 +16388,10 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 705507995}
+  - {fileID: 1142605140}
   - {fileID: 150681090}
   - {fileID: 1571114869}
-  - {fileID: 1142605140}
-  - {fileID: 1273833694}
   - {fileID: 1874870732}
+  - {fileID: 705507995}
   - {fileID: 1149440613}
   - {fileID: 1879407401}
