@@ -2,59 +2,83 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public CharacterController controller;  // Reference to the CharacterController component
+    public CharacterController controller; // Component for handling movement physics
 
-    public float speed = 12f;               // Normal walking speed
-    public float gravity = -9.81f * 2;      // Gravity effect on the player, multiplied to make it feel more realistic
-    public float jumpHeight = 3f;           // Height the player can jump
-    public float sprintMultiplier = 1.5f;   // Multiplier to increase speed when sprinting
+    public float speed = 12f;              // Base walking speed
+    public float gravity = -9.81f * 2;     // Gravity effect, intensified for a more realistic feel
+    public float jumpHeight = 3f;          // How high the player can jump
+    public float sprintMultiplier = 1.5f;  // Speed multiplier during sprinting
+    public Transform groundCheck;          // Position marker for checking if the player is grounded
+    public float groundDistance = 0.4f;    // Distance for the ground check
+    public LayerMask groundMask;           // Layers considered as ground
 
-    public Transform groundCheck;           // Transform at the player's feet to determine if they are on the ground
-    public float groundDistance = 0.4f;     // Radius of the ground check sphere
-    public LayerMask groundMask;            // LayerMask to filter what is considered ground
+    private Vector3 velocity;              // Current velocity vector of the player
+    private bool isGrounded;               // Flag indicating if the player is on the ground
+    private Vector3 move;                  // Movement direction vector
+    private bool isSprinting;              // Flag for sprinting state
 
-    Vector3 velocity;                       // Current velocity of the player
-    bool isGrounded;                        // Is the player currently grounded
+    public StaminaSystem staminaSystem;    // Reference to the StaminaSystem component
+    private float nextStaminaTime = 0;     // Time control for the next stamina update
 
-    // Update is called once per frame
     void Update()
     {
-        // Check if the player is on the ground using a sphere overlap test
+        // Handle non-physics input here
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-
-        // If grounded and velocity is downward, reset Y velocity to a small negative value
         if (isGrounded && velocity.y < 0)
         {
-            velocity.y = -2f;
+            velocity.y = -2f;  // Reset the downward velocity when grounded
         }
 
-        // Get input from horizontal and vertical axes
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
+        move = transform.right * x + transform.forward * z;
 
-        // Calculate movement direction vector based on input
-        Vector3 move = transform.right * x + transform.forward * z;
+        isSprinting = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
 
-        // Check for sprint input and apply speed multiplier if sprinting
-        float currentSpeed = speed;
-        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
-        {
-            currentSpeed *= sprintMultiplier;
-        }
-
-        // Move the player using the character controller
-        controller.Move(move * currentSpeed * Time.deltaTime);
-
-        // Check for jump input and apply jump velocity if grounded
+        // Jump handling
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);  // Calculate the velocity needed to reach the jump height
+        }
+    }
+
+    void FixedUpdate()
+    {
+        // Handle all physics-based movement here
+        float currentSpeed = isSprinting ? speed * sprintMultiplier : speed;
+        if (isSprinting)
+        {
+            TryToSprint(currentSpeed);
+        }
+        else
+        {
+            controller.Move(move * currentSpeed * Time.fixedDeltaTime);  // Move at normal speed
+            TryToRecoverStamina();
         }
 
-        // Apply gravity to velocity
-        velocity.y += gravity * Time.deltaTime;
+        // Apply gravity in all cases
+        velocity.y += gravity * Time.fixedDeltaTime;
+        controller.Move(velocity * Time.fixedDeltaTime);
+    }
 
-        // Move the player using the character controller for vertical movement
-        controller.Move(velocity * Time.deltaTime);
+    // Attempts to sprint, consuming stamina
+    void TryToSprint(float currentSpeed)
+    {
+        if (Time.time >= nextStaminaTime && staminaSystem.CanUseStamina(1))
+        {
+            nextStaminaTime = Time.time + 0.1f;  // Manage stamina usage every 0.1 seconds
+            staminaSystem.UseStamina(1);        // Consume stamina
+            controller.Move(move * currentSpeed * Time.fixedDeltaTime);  // Apply sprinting speed
+        }
+    }
+
+    // Recovers stamina while walking
+    void TryToRecoverStamina()
+    {
+        if (Time.time >= nextStaminaTime && move != Vector3.zero)
+        {
+            nextStaminaTime = Time.time + 0.5f;  // Manage stamina recovery every 0.5 seconds
+            staminaSystem.RecoverStamina(1);     // Recover stamina
+        }
     }
 }

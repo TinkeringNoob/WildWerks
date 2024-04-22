@@ -1,12 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+
+public enum InteractableType
+{
+    Rock,   // Rocks that can be picked up
+    Tree,   // Trees that can be chopped
+    Rabbit  // Rabbits that can be inspected or attacked
+}
 
 // This class represents an interactable object within the game.
 public class InteractableObject : MonoBehaviour
 {
-    public string ItemName;  // Name of the item for identification
-    public bool playerInRange;  // Flag to check if the player is within the interaction range
+    public string ItemName; // Name of the item for identification
+    public InteractableType Type; // Type of interactable object
 
     // Returns the name of the item.
     public string GetItemName()
@@ -14,22 +19,29 @@ public class InteractableObject : MonoBehaviour
         return ItemName;
     }
 
-    // Called when another collider enters this object's trigger collider.
-    private void OnTriggerEnter(Collider other)
+    // Interaction logic based on the type of the object
+    public void Interact()
     {
-        if (other.CompareTag("Player"))  // Check if the collider belongs to the player
+        switch (Type)
         {
-            playerInRange = true;  // Set the flag to true indicating player is in range
+            case InteractableType.Rock:
+                Debug.Log(ItemName + " was picked up by the player.");
+                Destroy(gameObject); // Remove the rock from the game
+                break;
+            case InteractableType.Tree:
+                Debug.Log("Chopping down " + ItemName);
+                // Add chopping logic here
+                break;
+            case InteractableType.Rabbit:
+                Debug.Log("Inspecting " + ItemName);
+                // Add rabbit interaction logic here
+                break;
         }
     }
 
-    // Called when another collider exits this object's trigger collider.
-    private void OnTriggerExit(Collider other)
+    // Check if the player is within interaction range
+    public bool CanInteract(Transform playerTransform)
     {
-        if (other.CompareTag("Player"))  // Check if the collider belongs to the player
-        {
-            playerInRange = false;  // Set the flag to false indicating player is no longer in range
-        }
+        return Vector3.Distance(transform.position, playerTransform.position) <= 5.0f; // Interaction range
     }
-
 }

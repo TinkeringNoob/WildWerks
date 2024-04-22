@@ -1,73 +1,158 @@
 using System.Collections;
+using Unity.Burst.Intrinsics;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class RandomAI_Movement : MonoBehaviour
 {
-    public float moveSpeed = 1.0f;  // Movement speed of the AI
-    public float rotationSpeed = 120.0f;  // Rotation speed to turn to new directions
-    private Animator animator;  // Reference to the Animator component
+    // Movement speed of the AI
+    public float moveSpeed = 1.0f;
 
-    private float moveTime;  // How long to move in one direction
-    private float waitTime;  // How long to wait before moving again
-    private float moveTimer;  // Timer for movement duration
-    private float waitTimer;  // Timer for wait duration
-    private bool isMoving;  // Flag to check if the AI is currently moving
+    // Rotation speed to turn to new directions
+    public float rotationSpeed = 120.0f;
+
+    // Reference to the Animator component
+    private Animator animator;
+
+    // How long to move in one direction
+    private float moveTime;
+
+    // How long to wait before moving again
+    private float waitTime;
+
+    // Timer for movement duration
+    private float moveTimer;
+
+    // Timer for wait duration
+    private float waitTimer;
+
+    // Flag to check if the AI is currently moving
+    private bool isMoving;
+
+    // Flag to check if the AI is currently waiting
+    private bool isWaiting;
 
     void Start()
     {
-        animator = GetComponent<Animator>();  // Get the Animator component attached to this GameObject
-        if (animator == null)  // Check if the Animator component is not found
-        {
-            Debug.LogError("Animator component missing from this GameObject");  // Log error if Animator is missing
-        }
+        // Get the Animator component attached to the GameObject
+        animator = GetComponent<Animator>();
 
-        SetRandomTimers();  // Initialize movement and wait times randomly
-        isMoving = true;  // Set the movement flag to true to start moving immediately
-        Debug.Log("Movement initialized.");  // Log that movement has been initialized
+        // Set random timers for movement and waiting
+        SetRandomTimers();
+
+        // Start moving
+        isMoving = true;
     }
 
     void Update()
     {
-        if (animator == null) return;  // Exit Update if no Animator component is found
-
-        if (isMoving)  // Check if AI is supposed to be moving
+        // If the AI is moving
+        if (isMoving)
         {
-            moveTimer -= Time.deltaTime;  // Decrement the move timer by the elapsed time since last frame
-            if (moveTimer > 0)  // Check if there is still time left to move
+            // Decrease the move timer
+            moveTimer -= Time.deltaTime;
+
+            // If the move timer is greater than 0
+            if (moveTimer > 0)
             {
-                animator.SetBool("IsRunning", true);  // Activate the running animation
-                transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);  // Move the object forward
+                // Set the IsRunning boolean to true to play the running animation
+                animator.SetBool("IsRunning", true);
+
+                // Move the AI forward
+                transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
             }
-            else  // If move time is up
+            else
             {
-                isMoving = false;  // Set moving flag to false
-                waitTimer = waitTime;  // Reset the wait timer to the initial wait time
-                animator.SetBool("IsRunning", false);  // Deactivate the running animation
+                // Stop moving
+                isMoving = false;
+
+                // Set the wait timer
+                waitTimer = waitTime;
+
+                // Set the IsRunning boolean to false to stop the running animation
+                animator.SetBool("IsRunning", false);
             }
         }
-        else  // If AI is not supposed to be moving
+        else
         {
-            waitTimer -= Time.deltaTime;  // Decrement the wait timer by the elapsed time since last frame
-            if (waitTimer < 0)  // Check if the wait time is over
+            // Decrease the wait timer
+            waitTimer -= Time.deltaTime;
+
+            // If the wait timer is less than 0
+            if (waitTimer < 0)
             {
-                isMoving = true;  // Set moving flag to true to start moving
-                SetRandomTimers();  // Reinitialize the move and wait times randomly
-                RandomizeDirection();  // Change the direction randomly
+                // Start moving again
+                isMoving = true;
+
+                // Set random timers for movement and waiting
+                SetRandomTimers();
+
+                // Randomize the direction
+                RandomizeDirection();
             }
         }
     }
 
+    // Set random timers for movement and waiting
     private void SetRandomTimers()
     {
-        moveTime = Random.Range(2, 5);  // Set the move time to a random value between 2 and 5 seconds
-        moveTimer = moveTime;  // Initialize the move timer with the new move time
-        waitTime = Random.Range(1, 3);  // Set the wait time to a random value between 1 and 3 seconds
+        // Randomly set the move time between 2 and 5 seconds
+        moveTime = Random.Range(2, 5);
+
+        // Set the move timer
+        moveTimer = moveTime;
+
+        // Randomly set the wait time between 1 and 3 seconds
+        waitTime = Random.Range(1, 3);
     }
 
+    // Randomize the direction
     private void RandomizeDirection()
     {
-        float angle = Random.Range(0f, 360f);  // Generate a random angle between 0 and 360 degrees
-        transform.rotation = Quaternion.Euler(0, angle, 0);  // Rotate the GameObject to the new random angle
+        // Randomly set the angle between 0 and 360 degrees
+        float angle = Random.Range(0f, 360f);
+
+        // Set the rotation of the AI
+        transform.rotation = Quaternion.Euler(0, angle, 0);
+    }
+
+    // New features:
+    // Patrol route radius
+    public float patrolRadius = 5.0f;
+
+    // Patrol route points
+    public Transform[] patrolPoints;
+
+    // Current patrol point index
+    private int currentPatrolPoint = 0;
+
+    // Patrol route behavior
+    void Patrol()
+    {
+        // If there are patrol points
+        if (patrolPoints.Length > 0)
+        {
+            // Move to the current patrol point
+            transform.position = Vector3.MoveTowards(transform.position, patrolPoints[currentPatrolPoint].position, moveSpeed * Time.deltaTime);
+
+            // If the AI has reached the current patrol point
+            if (Vector3.Distance(transform.position, patrolPoints[currentPatrolPoint].position) < 1.0f)
+            {
+                // Move to the next patrol point
+                currentPatrolPoint = (currentPatrolPoint + 1) % patrolPoints.Length;
+            }
+        }
+    }
+
+    // Wandering behavior
+    void Wander()
+    {
+        // Randomly set the angle between 0 and 360 degrees
+        float angle = Random.Range(0f, 360f);
+
+        // Set the direction
+        Vector3 direction = Quaternion.Euler(0, angle, 0) * Vector3.forward;
+
+        // Move in the random direction within the patrol radius
+        transform.position = Vector3.MoveTowards(transform.position, transform.position + direction * patrolRadius, moveSpeed * Time.deltaTime);
     }
 }
