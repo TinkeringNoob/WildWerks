@@ -1,34 +1,30 @@
 using UnityEngine;
 
-// Handles health operations such as taking damage and healing for the player
 public class HealthSystem : MonoBehaviour
 {
-    private PlayerStats playerStats;  // Reference to the PlayerStats component
+    public float maxHealth = 100f;    // Maximum health
+    public float currentHealth;       // Current health level
 
-    void Awake()
+    void Start()
     {
-        // Attempt to get the PlayerStats component from the same GameObject
-        playerStats = GetComponent<PlayerStats>();
-        if (playerStats == null)
+        currentHealth = maxHealth;    // Initialize health to max at start
+    }
+
+    // Method to reduce health
+    public void TakeDamage(float amount)
+    {
+        currentHealth -= amount;
+        currentHealth = Mathf.Max(currentHealth, 0); // Ensure health doesn't drop below zero
+        if (currentHealth == 0)
         {
-            // If no PlayerStats component is found, log an error message
-            Debug.LogError("HealthSystem: No PlayerStats component found on this GameObject.");
+            Debug.Log("Player has died.");  // Placeholder for any death logic
         }
     }
 
-    // Method to apply damage to the player
-    public void TakeDamage(int damage)
+    // Method to recover health
+    public void Heal(float amount)
     {
-        // Negate the damage value to reduce health
-        playerStats.ModifyHealth(-damage);
-        Debug.Log($"Damage taken: {damage}. Current health: {playerStats.currentHealth}");
-    }
-
-    // Method to heal the player
-    public void Heal(int amount)
-    {
-        // Positive value to increase health
-        playerStats.ModifyHealth(amount);
-        Debug.Log($"Health healed: {amount}. Current health: {playerStats.currentHealth}");
+        currentHealth += amount;
+        currentHealth = Mathf.Min(currentHealth, maxHealth); // Ensure health doesn't exceed max
     }
 }

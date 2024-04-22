@@ -1,46 +1,32 @@
 using UnityEngine;
 
-
-// Manages stamina operations like consuming and recovering stamina for the player
 public class StaminaSystem : MonoBehaviour
 {
-    public bool CanUseStamina(int amount)
-    {
-        return playerStats.currentStamina >= amount;
-    }
-    private PlayerStats playerStats;  // Reference to the PlayerStats component
+    public float maxStamina = 100f;    // Maximum stamina
+    public float currentStamina;       // Current stamina level
 
-    void Awake()
+    void Start()
     {
-        // Get the PlayerStats component from the same GameObject
-        playerStats = GetComponent<PlayerStats>();
-        if (playerStats == null)
-        {
-            // Log an error if PlayerStats is not found
-            Debug.LogError("StaminaSystem: No PlayerStats component found on this GameObject.");
-        }
+        currentStamina = maxStamina;   // Initialize stamina to max at start
     }
 
-    // Method to consume stamina; the amount should be positive
-    public void UseStamina(int amount)
+    // Method to check if there is enough stamina available to perform an action
+    public bool CanUseStamina(float amount)
     {
-        if (playerStats.currentStamina >= amount)  // Check if there is enough stamina
-        {
-            // Reduce the stamina by the specified amount
-            playerStats.ModifyStamina(-amount);
-            Debug.Log($"Stamina used: {amount}. Remaining stamina: {playerStats.currentStamina}");
-        }
-        else
-        {
-            Debug.Log("Not enough stamina.");
-        }
+        return currentStamina >= amount; // Check if we have enough stamina
     }
 
-    // Method to recover stamina
-    public void RecoverStamina(int amount)
+    // Method to use (decrease) the stamina
+    public void UseStamina(float amount)
     {
-        // Increase the stamina by the specified amount
-        playerStats.ModifyStamina(amount);
-        Debug.Log($"Stamina recovered: {amount}. Current stamina: {playerStats.currentStamina}");
+        currentStamina -= amount;
+        currentStamina = Mathf.Max(currentStamina, 0); // Ensure stamina doesn't drop below zero
+    }
+
+    // Method to recover (increase) stamina
+    public void RecoverStamina(float amount)
+    {
+        currentStamina += amount;
+        currentStamina = Mathf.Min(currentStamina, maxStamina); // Ensure stamina doesn't exceed max
     }
 }

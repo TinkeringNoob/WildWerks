@@ -2,57 +2,60 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public CharacterController controller;  // Component for handling character movement physics
+    public CharacterController controller;
+    public float speed = 12f;
+    public float gravity = -9.81f * 2;
+    public float jumpHeight = 3f;
+    public float sprintMultiplier = 1.5f;
+    public Transform groundCheck;
+    public float groundDistance = 0.4f;
+    public LayerMask groundMask;
 
-    public float speed = 12f;               // Base walking speed
-    public float gravity = -9.81f * 2;      // Gravity multiplier for more realistic falling
-    public float jumpHeight = 3f;           // How high the player can jump
-    public float sprintMultiplier = 1.5f;   // Speed multiplier during sprinting
-    public Transform groundCheck;           // Transform used to check if the player is grounded
-    public float groundDistance = 0.4f;     // Radius of the ground check sphere
-    public LayerMask groundMask;            // Filter to determine what is considered ground
+    private Vector3 velocity;
+    private bool isGrounded;
+    private Vector3 lastMove;
 
-    private Vector3 velocity;               // Current velocity of the player
-    private bool isGrounded;                // Is the player currently grounded?
-    private Vector3 lastMove;               // Last movement input vector
-
-    public StaminaSystem staminaSystem;     // Reference to the StaminaSystem component for stamina management
+    public StaminaSystem staminaSystem;
+    public float staminaRecoveryRate = 1f;
+    public float staminaDrainRate = 1f;
 
     void Update()
     {
-        // Process input and update movement direction every frame
         lastMove = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         lastMove = transform.TransformDirection(lastMove);
 
-        // Check if the player is on the ground using a sphere overlap test
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         if (isGrounded && velocity.y < 0)
         {
-            velocity.y = -2f;  // Reset downward velocity when grounded
+            velocity.y = -2f;
         }
 
-        // Handle jump input
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);  // Calculate the velocity required to reach the desired jump height
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
     }
 
     void FixedUpdate()
     {
-        // Move the player based on input and whether they are sprinting or not
-        float currentSpeed = (Input.GetKey(KeyCode.LeftShift) ? speed * sprintMultiplier : speed);
+        bool isSprinting = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+        float currentSpeed = isSprinting && staminaSystem.CanUseStamina(staminaDrainRate * Time.fixedDeltaTime) ? speed * sprintMultiplier : speed;
+
         if (lastMove.magnitude > 0)
         {
             controller.Move(lastMove * currentSpeed * Time.fixedDeltaTime);
-            if (Input.GetKey(KeyCode.LeftShift) && staminaSystem.CanUseStamina(1))
-            {
-                staminaSystem.UseStamina(1);  // Consume stamina when sprinting
-            }
         }
 
-        // Always apply gravity to the velocity
+        if (isSprinting && lastMove.magnitude > 0 && staminaSystem.CanUseStamina(staminaDrainRate * Time.fixedDeltaTime))
+        {
+            staminaSystem.UseStamina(staminaDrainRate * Time.fixedDeltaTime);
+        }
+        else if (!isSprinting)
+        {
+            staminaSystem.RecoverStamina(staminaRecoveryRate * Time.fixedDeltaTime);
+        }
+
         velocity.y += gravity * Time.fixedDeltaTime;
-        controller.Move(velocity * Time.fixedDeltaTime);  // Apply gravity
+        controller.Move(velocity * Time.fixedDeltaTime);
     }
 }
