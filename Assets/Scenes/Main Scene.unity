@@ -1090,7 +1090,10 @@ MonoBehaviour:
   statusText: {fileID: 1739408655}
   healthSlider: {fileID: 394014928}
   staminaSlider: {fileID: 1576595916}
-  playerStats: {fileID: 1142605148}
+  healthSystem: {fileID: 1142605146}
+  staminaSystem: {fileID: 1142605149}
+  inventoryPanel: {fileID: 0}
+  inventoryItemPrefab: {fileID: 0}
 --- !u!1 &512768723
 GameObject:
   m_ObjectHideFlags: 0
@@ -2608,6 +2611,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033a6a7d81ae77742a946f4cda88aa00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
 --- !u!114 &1142605148
 MonoBehaviour:
   m_ObjectHideFlags: 0
