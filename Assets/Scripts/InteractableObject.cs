@@ -1,47 +1,34 @@
 ﻿using UnityEngine;
 
-public enum InteractableType
-{
-    Rock,   // Rocks that can be picked up
-    Tree,   // Trees that can be chopped
-    Rabbit  // Rabbits that can be inspected or attacked
-}
-
-// This class represents an interactable object within the game.
 public class InteractableObject : MonoBehaviour
 {
-    public string ItemName; // Name of the item for identification
-    public InteractableType Type; // Type of interactable object
+    public Item item;  // Reference to the Item ScriptableObject for this object
 
-    // Returns the name of the item.
-    public string GetItemName()
-    {
-        return ItemName;
-    }
-
-    // Interaction logic based on the type of the object
+    // Public method to be called when interaction is needed
     public void Interact()
     {
-        switch (Type)
+        if (UIManager.Instance.AddItemToInventory(item)) // Attempt to add the item to the inventory
         {
-            case InteractableType.Rock:
-                Debug.Log(ItemName + " was picked up by the player.");
-                Destroy(gameObject); // Remove the rock from the game
-                break;
-            case InteractableType.Tree:
-                Debug.Log("Chopping down " + ItemName);
-                // Add chopping logic here
-                break;
-            case InteractableType.Rabbit:
-                Debug.Log("Inspecting " + ItemName);
-                // Add rabbit interaction logic here
-                break;
+            Debug.Log(item.itemName + " added to inventory.");
+            Destroy(gameObject); // Remove the object from the game world
         }
     }
 
-    // Check if the player is within interaction range
-    public bool CanInteract(Transform playerTransform)
+    // Example method to return the item's name if needed elsewhere
+    public string GetItemName()
     {
-        return Vector3.Distance(transform.position, playerTransform.position) <= 5.0f; // Interaction range
+        return item.itemName;
+    }
+
+    // Public method to check if interaction is possible (e.g., item is not null)
+    public bool CanInteract()
+    {
+        return item != null;
+    }
+
+    // Generate interaction message
+    public string InteractionMessage()
+    {
+        return "Press E to interact with " + item.itemName;
     }
 }

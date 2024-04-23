@@ -18,11 +18,10 @@ public class Sword : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, 2.0f)) // Short range for sword attack
         {
-            if (hit.collider.gameObject.GetComponent<InteractableObject>()
-                && hit.collider.gameObject.GetComponent<InteractableObject>().Type == InteractableType.Rabbit)
+            InteractableObject interactableObject = hit.collider.GetComponent<InteractableObject>();
+            if (interactableObject != null && interactableObject.CanInteract())
             {
-                // Call the interact function on the rabbit
-                hit.collider.gameObject.GetComponent<InteractableObject>().Interact();
+                interactableObject.Interact();
             }
         }
     }

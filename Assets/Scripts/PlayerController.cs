@@ -1,27 +1,29 @@
 using UnityEngine;
 
-// Manages player inputs and interactions
 public class PlayerController : MonoBehaviour
 {
-    public Camera playerCamera; // Reference to the player's camera for raycasting
-    public float interactionDistance = 5f; // Maximum distance for interactions
+    public Camera playerCamera; // Reference to the player's camera used for raycasting
+    public float interactionDistance = 5f; // Maximum distance from which the player can interact with objects
 
-    // Update is called once per frame
     void Update()
     {
         HandleInput();
     }
 
-    // Handles player inputs
+    // Handles key inputs for player interactions
     void HandleInput()
     {
-        if (Input.GetMouseButtonDown(0)) // Left mouse button
+        if (Input.GetKeyDown(KeyCode.E))
         {
             InteractWithObject();
         }
+        if (Input.GetKeyDown(KeyCode.G)) // Key for dropping items
+        {
+            DropItem();
+        }
     }
 
-    // Cast a ray from the camera to interact with objects
+    // Method to interact with objects
     void InteractWithObject()
     {
         RaycastHit hit;
@@ -30,10 +32,17 @@ public class PlayerController : MonoBehaviour
         if (Physics.Raycast(ray, out hit, interactionDistance))
         {
             InteractableObject interactableObject = hit.collider.GetComponent<InteractableObject>();
-            if (interactableObject != null && interactableObject.CanInteract(transform))
+            if (interactableObject != null && interactableObject.CanInteract())
             {
                 interactableObject.Interact();
             }
         }
+    }
+
+    // Method to drop an item
+    void DropItem()
+    {
+        // Implement the logic to drop the item from the inventory
+        // This could involve selecting the last item added or allowing the player to select an item to drop
     }
 }
