@@ -14,9 +14,16 @@ public class UIManager : MonoBehaviour
 
     public Transform inventoryPanel;    // Panel where inventory items will be displayed
     public GameObject inventoryItemPrefab;  // Prefab for displaying each item in the inventory
+    public Button toggleInventoryButton;  // Button to toggle the inventory display
 
     void Start()
     {
+        // Initialize inventory display to be hidden
+        inventoryPanel.gameObject.SetActive(false); // Hide inventory panel at start
+
+        // Attach toggleInventory method to the button's onClick event
+        toggleInventoryButton.onClick.AddListener(ToggleInventory);
+
         // Check if essential components are assigned
         if (!healthSystem)
         {
@@ -26,8 +33,6 @@ public class UIManager : MonoBehaviour
         {
             Debug.LogError("UIManager: StaminaSystem reference not set.");
         }
-
-        // Optionally initialize the inventory display here, if needed
     }
 
     void Update()
@@ -40,6 +45,12 @@ public class UIManager : MonoBehaviour
         if (staminaSystem)
         {
             UpdateStaminaBar();
+        }
+
+        // Check if the 'I' key is pressed to toggle the inventory
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            ToggleInventory();
         }
     }
 
@@ -73,5 +84,11 @@ public class UIManager : MonoBehaviour
             itemGO.GetComponentInChildren<TextMeshProUGUI>().text = item.itemName;
             itemGO.GetComponentInChildren<Image>().sprite = item.icon;
         }
+    }
+
+    // Toggles the visibility of the inventory panel
+    public void ToggleInventory()
+    {
+        inventoryPanel.gameObject.SetActive(!inventoryPanel.gameObject.activeSelf);
     }
 }

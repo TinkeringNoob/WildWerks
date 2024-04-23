@@ -1,35 +1,18 @@
-using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryManager : MonoBehaviour
+public class InventoryUIManager : MonoBehaviour
 {
-    public List<Item> items = new List<Item>(); // List to store all inventory items
+    public GameObject inventoryPanel;  // Drag the InventoryPanel here in the inspector
 
-    // Method to add an item to the inventory
-    public void AddItem(Item item)
+    // Start is called before the first frame update
+    void Start()
     {
-        items.Add(item);
-        Debug.Log(item.itemName + " added to inventory.");
+        inventoryPanel.SetActive(false);  // Hide the inventory panel at start
     }
 
-    // Method to remove an item from the inventory
-    public void RemoveItem(Item item)
+    // Method to toggle the inventory panel visibility
+    public void ToggleInventory()
     {
-        if (items.Contains(item))
-        {
-            items.Remove(item);
-            Debug.Log(item.itemName + " removed from inventory.");
-        }
-    }
-
-    // Method to use an item; specifics would depend on item type
-    public void UseItem(Item item)
-    {
-        if (item is Weapon)
-        {
-            Debug.Log("Using weapon: " + item.itemName);
-            // Additional logic to use the weapon
-        }
-        // Further conditions can be added for other item types
+        inventoryPanel.SetActive(!inventoryPanel.activeSelf);  // Toggle the active state
     }
 }
